@@ -125,3 +125,41 @@ export const JaywanOfficialClone: React.FC<CloneProps> = ({ children, amount }) 
     </main>
   </div>
 );
+
+export const SPLOfficialClone: React.FC<CloneProps> = ({ children, amount }) => (
+  <div className="min-h-screen bg-[#F8F9FA]" dir="rtl">
+    <nav className="bg-white border-b-4 border-[#006847] px-6 py-4 flex items-center justify-between shadow-sm">
+      <img src="/assets/branding/logo-spl.png" alt="SPL" className="h-12" />
+      <div className="flex items-center gap-2 text-[#006847] font-bold border border-[#006847] px-4 py-1 rounded-full">
+        <Globe className="w-4 h-4" /> عربي
+      </div>
+    </nav>
+    <main className="container mx-auto px-4 py-10 max-w-4xl">
+      <div className="bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden">
+        <div className="bg-[#006847] p-8 text-white">
+          <h2 className="text-2xl font-black">تفاصيل السداد</h2>
+          {amount && <div className="text-3xl font-black mt-2">{amount}</div>}
+        </div>
+        <div className="p-10">{children}</div>
+      </div>
+    </main>
+  </div>
+);
+
+export const SMSAOfficialClone: React.FC<CloneProps> = ({ children, amount }) => (
+  <div className="min-h-screen bg-white" dir="rtl">
+    <header className="px-10 py-6 border-b flex justify-between items-center">
+      <img src="/assets/branding/logo-smsaexpress.png" alt="SMSA" className="h-14" />
+      <div className="flex gap-4">
+        <div className="w-2 h-2 rounded-full bg-[#004B87]" />
+        <div className="w-2 h-2 rounded-full bg-[#E31E24]" />
+      </div>
+    </header>
+    <main className="container mx-auto px-4 py-12 flex justify-center">
+      <div className="w-full max-w-2xl bg-[#F4F7F9] p-10 rounded-3xl border shadow-2xl">
+        <h2 className="text-2xl font-bold text-[#004B87] mb-6 border-r-4 border-[#E31E24] pr-4">سداد الفاتورة</h2>
+        {children}
+      </div>
+    </main>
+  </div>
+);

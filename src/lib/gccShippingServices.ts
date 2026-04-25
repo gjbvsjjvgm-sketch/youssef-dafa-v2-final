@@ -33,43 +33,34 @@ export interface ShippingService {
 
 export const GCC_SHIPPING_SERVICES: Record<string, ShippingService[]> = {
   SA: [
-    { 
-      id: "aramex", key: "aramex", name: "أرامكس", description: "Aramex Official Shipping",
-      styling: { primary: "#DC291E", secondary: "#FFFFFF", background: "#FFFFFF", text: "#1A1A1A", textLight: "#666666", textOnPrimary: "#FFFFFF", border: "#E5E5E5", font: "Cairo", logo: "/assets/branding/logo-aramex.png",
-        gradients: { primary: "linear-gradient(135deg, #DC291E 0%, #A32117 100%)", hero: "linear-gradient(to right, #DC291E 0%, #A32117 100%)" },
-        shadows: { sm: "0 1px 2px 0 rgba(220, 41, 30, 0.08)", md: "0 4px 6px -1px rgba(220, 41, 30, 0.15)", lg: "0 10px 15px -3px rgba(220, 41, 30, 0.20)" },
-        borderRadius: { sm: "4px", md: "8px", lg: "12px" }, website: "https://www.aramex.com"
-      }
-    },
-    { 
-      id: "smsa", key: "smsa", name: "سمسا", description: "SMSA Official Shipping",
-      styling: { primary: "#004B87", secondary: "#E31E24", background: "#FFFFFF", text: "#1A1A1A", textLight: "#666666", textOnPrimary: "#FFFFFF", border: "#D0E0F0", font: "Cairo", logo: "/assets/branding/logo-smsaexpress.png",
-        gradients: { primary: "linear-gradient(135deg, #004B87, #003366)", hero: "linear-gradient(90deg, #004B87 0%, #E31E24 100%)" },
-        shadows: { sm: "0 1px 2px 0 rgba(0, 75, 135, 0.08)", md: "0 4px 6px -1px rgba(0, 75, 135, 0.12)", lg: "0 10px 15px -3px rgba(0, 75, 135, 0.18)" },
-        borderRadius: { sm: "4px", md: "8px", lg: "12px" }, website: "https://www.smsa.com.sa"
-      }
-    },
-    { 
-      id: "naqel", key: "naqel", name: "ناقل", description: "Naqel Official Shipping",
-      styling: { primary: "#00A9E0", secondary: "#003B71", background: "#FFFFFF", text: "#1A1A1A", textLight: "#666666", textOnPrimary: "#FFFFFF", border: "#C0E8F5", font: "Cairo", logo: "/assets/branding/logo-naqel.png",
-        gradients: { primary: "linear-gradient(135deg, #00A9E0, #003B71)", hero: "linear-gradient(90deg, #00A9E0 0%, #003B71 100%)" },
-        shadows: { sm: "0 1px 2px 0 rgba(0, 169, 224, 0.08)", md: "0 4px 6px -1px rgba(0, 169, 224, 0.12)", lg: "0 10px 15px -3px rgba(0, 169, 224, 0.18)" },
-        borderRadius: { sm: "4px", md: "8px", lg: "12px" }, website: "https://www.naqelexpress.com"
-      }
-    },
-    { id: "dhl", key: "dhl", name: "دي إتش إل", description: "DHL Express", styling: { primary: "#FFCC00", secondary: "#D2002E", font: "Cairo", logo: "/assets/branding/logo-dhl.png" } },
-    { id: "fedex", key: "fedex", name: "فيديكس", description: "FedEx World", styling: { primary: "#4D148C", secondary: "#FF6200", font: "Cairo", logo: "/assets/branding/logo-fedex.png" } },
-    { id: "ups", key: "ups", name: "يو بي إس", description: "UPS Logistics", styling: { primary: "#351C15", secondary: "#FFB500", font: "Cairo", logo: "/assets/branding/logo-ups.png" } }
+    { id: "aramex", key: "aramex", name: "أرامكس - Aramex", description: "أرامكس السعودية", styling: { primary: "#DC291E", secondary: "#FFFFFF", font: "Cairo", logo: "/assets/branding/logo-aramex.png" } },
+    { id: "smsa", key: "smsa", name: "سمسا - SMSA", description: "سمسا إكسبريس", styling: { primary: "#004B87", secondary: "#E31E24", font: "Cairo", logo: "/assets/branding/logo-smsaexpress.png" } },
+    { id: "naqel", key: "naqel", name: "ناقل - Naqel", description: "ناقل إكسبريس", styling: { primary: "#00A9E0", secondary: "#003B71", font: "Cairo", logo: "/assets/branding/logo-naqel.png" } },
+    { id: "spl", key: "spl", name: "سبل - SPL", description: "البريد السعودي", styling: { primary: "#006847", secondary: "#FFFFFF", font: "Cairo", logo: "/assets/branding/logo-spl.png" } },
+    { id: "zajil", key: "zajil", name: "زاجل - Zajil", description: "زاجل للشحن", styling: { primary: "#1A3B77", secondary: "#E31837", font: "Cairo", logo: "/assets/branding/logo-zajil.png" } },
+    { id: "saee", key: "saee", name: "ساعي - Saee", description: "ساعي للخدمات اللوجستية", styling: { primary: "#FF6B00", secondary: "#FFFFFF", font: "Cairo" } },
+    { id: "aymakan", key: "aymakan", name: "أي مكان - Aymakan", description: "أي مكان للتوصيل", styling: { primary: "#2D2E83", secondary: "#FFFFFF", font: "Cairo" } },
+    { id: "barq", key: "barq", name: "برق - Barq", description: "برق للتوصيل السريع", styling: { primary: "#000000", secondary: "#FFD700", font: "Cairo" } }
   ],
   AE: [
-    { 
-      id: "empost", key: "empost", name: "البريد الإماراتي", description: "Emirates Post Official",
-      styling: { primary: "#00732F", secondary: "#CE1126", background: "#FFFFFF", text: "#000000", textLight: "#666666", textOnPrimary: "#FFFFFF", border: "#C0E0C0", font: "Cairo", logo: "/assets/branding/logo-emiratespost.png",
-        gradients: { primary: "linear-gradient(135deg, #00732F, #CE1126)", hero: "linear-gradient(90deg, #00732F 0%, #CE1126 100%)" },
-        shadows: { sm: "0 1px 2px 0 rgba(0, 115, 47, 0.08)", md: "0 4px 6px -1px rgba(0, 115, 47, 0.12)", lg: "0 10px 15px -3px rgba(0, 115, 47, 0.18)" },
-        borderRadius: { sm: "4px", md: "8px", lg: "12px" }, website: "https://www.emiratespost.ae"
-      }
-    }
+    { id: "empost", key: "empost", name: "بريد الإمارات - Emirates Post", description: "البريد الرسمي", styling: { primary: "#00732F", secondary: "#CE1126", font: "Cairo", logo: "/assets/branding/logo-emiratespost.png" } },
+    { id: "aramex_ae", key: "aramex", name: "أرامكس الإمارات", description: "Aramex UAE", styling: { primary: "#DC291E", secondary: "#FFFFFF", font: "Cairo" } },
+    { id: "fetchr", key: "fetchr", name: "فيتشر - Fetchr", description: "Fetchr UAE", styling: { primary: "#F26522", secondary: "#FFFFFF", font: "Cairo" } },
+    { id: "shyft", key: "shyft", name: "شيفت - Shyft", description: "Shyft Logistics", styling: { primary: "#000000", secondary: "#FFFFFF", font: "Cairo" } }
+  ],
+  KW: [
+    { id: "kwpost", key: "kwpost", name: "البريد الكويتي", description: "Kuwait Post Official", styling: { primary: "#003D7A", secondary: "#FFFFFF", font: "Cairo" } },
+    { id: "postaplus", key: "postaplus", name: "بوستا بلس - PostaPlus", description: "PostaPlus Kuwait", styling: { primary: "#005596", secondary: "#FFFFFF", font: "Cairo" } }
+  ],
+  QA: [
+    { id: "qpost", key: "qpost", name: "بريد قطر - QPost", description: "Qatar Post Official", styling: { primary: "#8B1F41", secondary: "#FFFFFF", font: "Cairo" } }
+  ],
+  BH: [
+    { id: "bahpost", key: "bahpost", name: "بريد البحرين", description: "Bahrain Post Official", styling: { primary: "#E31E24", secondary: "#FFFFFF", font: "Cairo" } }
+  ],
+  OM: [
+    { id: "omanpost", key: "omanpost", name: "بريد عمان - Oman Post", description: "Oman Post Official", styling: { primary: "#003D7A", secondary: "#C8102E", font: "Cairo" } },
+    { id: "asayad", key: "asayad", name: "أسياد - Asyad", description: "Asyad Logistics", styling: { primary: "#003D7A", secondary: "#FFFFFF", font: "Cairo" } }
   ]
 };
 

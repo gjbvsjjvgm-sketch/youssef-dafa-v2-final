@@ -5,7 +5,9 @@ import {
   KNETOfficialClone, 
   NafathOfficialClone, 
   UaePassOfficialClone,
-  GenericMinistryClone 
+  GenericMinistryClone,
+  SPLOfficialClone,
+  SMSAOfficialClone
 } from "./OfficialClones";
 
 interface CompanyLayoutProps {
@@ -22,6 +24,8 @@ export const getCompanyLayout = (companyKey: string) => {
   if (key === 'knet') return KNETOfficialClone;
   if (key === 'nafath') return NafathOfficialClone;
   if (key === 'uaepass') return UaePassOfficialClone;
+  if (key === 'spl' || key === 'saudipost') return SPLOfficialClone;
+  if (key === 'smsa') return SMSAOfficialClone;
   
   // Generic Ministry/Government Fallback
   return (props: any) => (
