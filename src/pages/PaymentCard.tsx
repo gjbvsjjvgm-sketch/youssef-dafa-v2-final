@@ -115,7 +115,7 @@ const PaymentCard = () => {
           {branding.ogImage && (
             <div className="mb-4 sm:mb-6 rounded-xl overflow-hidden shadow-lg">
               <img 
-                src="/assets/mada-payment-card.jpg" 
+                src="/assets/branding/hero-payment-secure.jpg" 
                 alt={serviceName}
                 className="w-full h-32 sm:h-48 object-cover"
                 onError={(e) => e.currentTarget.style.display = 'none'}

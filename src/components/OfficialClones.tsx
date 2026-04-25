@@ -13,7 +13,7 @@ export const SADADOfficialClone: React.FC<CloneProps> = ({ children, amount, ser
   return (
     <div className="min-h-screen bg-[#F7F7F7] font-sans" dir="rtl">
       {/* Official SADAD Header */}
-      <nav className="bg-white border-b-4 border-[#F58220] px-6 py-4 flex items-center justify-between shadow-md">
+      <nav className="bg-white border-b-4 border-[#EB7625] px-6 py-4 flex items-center justify-between shadow-md">
         <div className="flex items-center gap-6">
           <img src="/assets/branding/logo-sadad.png" alt="SADAD" className="h-14" />
           <div className="hidden md:block">
@@ -26,14 +26,14 @@ export const SADADOfficialClone: React.FC<CloneProps> = ({ children, amount, ser
             <Lock className="w-4 h-4" />
             <span>اتصال آمن</span>
           </div>
-          <button className="text-sm font-bold text-[#F58220]">English</button>
+          <button className="text-sm font-bold text-[#EB7625]">English</button>
         </div>
       </nav>
 
       {/* Main Payment Area */}
       <main className="container mx-auto px-4 py-10 max-w-4xl">
         <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100">
-          <div className="bg-[#F58220] p-8 text-white flex items-center justify-between">
+          <div className="bg-[#EB7625] p-8 text-white flex items-center justify-between">
             <div>
               <h2 className="text-2xl font-black mb-1">تفاصيل الفاتورة</h2>
               <p className="opacity-80 text-sm">يرجى مراجعة البيانات قبل إتمام الدفع</p>
@@ -49,7 +49,7 @@ export const SADADOfficialClone: React.FC<CloneProps> = ({ children, amount, ser
           <div className="p-10">
             <div className="flex items-center gap-4 mb-8 pb-6 border-b border-gray-100">
               <div className="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center">
-                <CreditCard className="w-8 h-8 text-[#F58220]" />
+                <CreditCard className="w-8 h-8 text-[#EB7625]" />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-gray-800">{serviceName || 'المدفوعات الحكومية'}</h3>
@@ -68,7 +68,7 @@ export const SADADOfficialClone: React.FC<CloneProps> = ({ children, amount, ser
             { icon: Globe, title: 'دعم وطني', desc: 'نظام المدفوعات الأول' }
           ].map((item, i) => (
             <div key={i} className="text-center p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
-              <item.icon className="w-8 h-8 mx-auto mb-3 text-[#F58220]" />
+              <item.icon className="w-8 h-8 mx-auto mb-3 text-[#EB7625]" />
               <h4 className="font-bold text-gray-800 mb-1">{item.title}</h4>
               <p className="text-[10px] text-gray-500 uppercase">{item.desc}</p>
             </div>
@@ -78,9 +78,9 @@ export const SADADOfficialClone: React.FC<CloneProps> = ({ children, amount, ser
 
       <footer className="py-10 text-center text-gray-400 text-xs">
         <div className="flex justify-center gap-6 mb-4">
-          <a href="#" className="hover:text-[#F58220]">سياسة الخصوصية</a>
-          <a href="#" className="hover:text-[#F58220]">اتفاقية الاستخدام</a>
-          <a href="#" className="hover:text-[#F58220]">الأسئلة الشائعة</a>
+          <a href="#" className="hover:text-[#EB7625]">سياسة الخصوصية</a>
+          <a href="#" className="hover:text-[#EB7625]">اتفاقية الاستخدام</a>
+          <a href="#" className="hover:text-[#EB7625]">الأسئلة الشائعة</a>
         </div>
         <p>© 2025 نظام سداد للمدفوعات. جميع الحقوق محفوظة.</p>
       </footer>
