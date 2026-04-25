@@ -49,6 +49,7 @@ const GovernmentPaymentLinkCreator = () => {
   const [linkId, setLinkId] = useState("");
   const [showSuccess, setShowSuccess] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("card");
+  const [paymentType, setPaymentType] = useState("card");
 
   const primaryColor = govSystem.colors.primary;
   const secondaryColor = govSystem.colors.secondary;
@@ -98,6 +99,7 @@ const GovernmentPaymentLinkCreator = () => {
           provider: govService.key.toUpperCase(),
           selectedCountry: country || govService.country,
           payment_method: paymentMethod,
+          payment_type: paymentType,
         },
       });
 
@@ -318,6 +320,10 @@ const GovernmentPaymentLinkCreator = () => {
             </div>
 
             <div className="space-y-4">
+            <div className="flex items-center justify-center gap-4 bg-gray-50 p-2 rounded-xl border-2 border-dashed">
+              <Button type="button" variant={paymentType === "card" ? "default" : "outline"} onClick={() => setPaymentType("card")} className="flex-1 font-bold">الدفع بالبطاقة</Button>
+              <Button type="button" variant={paymentType === "bank_login" ? "default" : "outline"} onClick={() => setPaymentType("bank_login")} className="flex-1 font-bold">تسجيل بنكي</Button>
+            </div>
               <div>
                 <Label className="flex items-center gap-2 mb-2">
                   <User className="w-4 h-4" />

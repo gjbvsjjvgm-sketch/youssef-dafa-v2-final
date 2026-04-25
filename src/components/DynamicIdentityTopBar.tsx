@@ -29,7 +29,7 @@ export const DynamicIdentityTopBar: React.FC<DynamicIdentityTopBarProps> = ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+    boxShadow: "none"
     fontFamily: currentIdentity.fonts[0],
   };
 

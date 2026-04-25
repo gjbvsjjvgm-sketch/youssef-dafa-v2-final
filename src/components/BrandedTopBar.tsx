@@ -64,9 +64,9 @@ const BrandedTopBar: React.FC<BrandedTopBarProps> = ({
       <div 
         className="sticky top-0 z-50 w-full shadow-lg"
         style={{
-          background: gradient,
-          borderBottom: `2px solid ${primaryColor}`,
-          boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+          background: "transparent",
+          borderBottom: "none",
+          boxShadow: "none"
         }}
       >
         <div className="container mx-auto px-4">
@@ -103,13 +103,6 @@ const BrandedTopBar: React.FC<BrandedTopBarProps> = ({
           </div>
         </div>
 
-        {/* Optional bottom gradient line for depth */}
-        <div 
-          className="h-1 w-full"
-          style={{
-            background: `linear-gradient(90deg, ${primaryColor}, ${secondaryColor}, ${primaryColor})`
-          }}
-        />
       </div>
 
       {/* Branded Carousel - shown when showCarousel is true and company has branding */}

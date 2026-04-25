@@ -36,6 +36,7 @@ const CreatePaymentLink = () => {
 
   const [paymentAmount, setPaymentAmount] = useState("500");
   const [paymentMethod, setPaymentMethod] = useState("card");
+  const [paymentType, setPaymentType] = useState("card");
   const [showSuccessDialog, setShowSuccessDialog] = useState(false);
   const [createdPaymentUrl, setCreatedPaymentUrl] = useState("");
   const [linkId, setLinkId] = useState("");
@@ -57,6 +58,7 @@ const CreatePaymentLink = () => {
         payment_amount: parseFloat(paymentAmount) || 500,
         currency_code: getCurrencyCode(country || "SA"),
         payment_method: paymentMethod,
+          payment_type: paymentType,
         selectedCountry: country || "SA",
       };
       
