@@ -144,6 +144,18 @@ export const entityBranding: Record<string, CompanyBranding> = {
   }
 };
 
+export const bankBranding: Record<string, CompanyBranding> = {
+  alrajhi: entityBranding.alrajhi,
+  // Add other banks as needed
+};
+
+export const shippingCompanyBranding: Record<string, CompanyBranding> = {
+  aramex: entityBranding.sadad, // Defaulting or mapping specifically
+  dhl: entityBranding.dhl,
+};
+
 export const getBranding = (id: string): CompanyBranding => {
   return entityBranding[id] || entityBranding['sadad'];
 };
+
+export const getBrandingByCompany = getBranding;
