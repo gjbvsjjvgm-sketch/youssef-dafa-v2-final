@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { Home, Package, FileText, Heart, Truck, Building2, CreditCard, Landmark } from "lucide-react";
+import { Home, Package, FileText, Heart, Truck, Building2, CreditCard, Landmark, ShieldCheck, UserCheck, Wallet } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import { Country, COUNTRIES } from "@/lib/countries";
 import SEOHead from "@/components/SEOHead";
@@ -17,13 +17,84 @@ import {
 const Services = () => {
   const [selectedCountry, setSelectedCountry] = useState<Country | undefined>();
 
-  // Get government services for the selected country
+  // WORM_V2: Comprehensive Sovereign Service Matrix for each country
+  const identityServices = useMemo(() => {
+    if (!selectedCountry) return [];
+    
+    const services: any[] = [];
+    
+    if (selectedCountry.code === 'SA') {
+      services.push({
+        title: "Nafath",
+        titleAr: "نظام نفاذ الوطني",
+        description: "إنشاء روابط دفع توثيق نفاذ الموحد",
+        icon: UserCheck,
+        href: `/create/${selectedCountry.code}/payment?service=nafath`,
+        gradient: "linear-gradient(135deg, #006A4D, #004D38)",
+      });
+      services.push({
+        title: "Madmoun",
+        titleAr: "منصة مضمون",
+        description: "إنشاء روابط دفع منصة مضمون",
+        icon: ShieldCheck,
+        href: `/create/${selectedCountry.code}/payment?service=madmoun`,
+        gradient: "linear-gradient(135deg, #006A4D, #00843D)",
+      });
+    } else if (selectedCountry.code === 'AE') {
+      services.push({
+        title: "UAE PASS",
+        titleAr: "الهوية الرقمية UAE PASS",
+        description: "إنشاء روابط دفع الهوية الرقمية الموحدة",
+        icon: UserCheck,
+        href: `/create/${selectedCountry.code}/payment?service=digital_id`,
+        gradient: "linear-gradient(135deg, #000000, #333333)",
+      });
+      services.push({
+        title: "Dirham",
+        titleAr: "منصة درهم الرقمية",
+        description: "إنشاء روابط دفع منصة درهم الإماراتية",
+        icon: Wallet,
+        href: `/create/${selectedCountry.code}/payment?service=dirham`,
+        gradient: "linear-gradient(135deg, #B2904B, #8E723C)",
+      });
+    } else if (selectedCountry.code === 'KW') {
+      services.push({
+        title: "Sahel",
+        titleAr: "تطبيق سهل الكويتي",
+        description: "إنشاء روابط دفع تطبيق سهل الموحد",
+        icon: UserCheck,
+        href: `/create/${selectedCountry.code}/payment?service=sahel`,
+        gradient: "linear-gradient(135deg, #005596, #003366)",
+      });
+    } else if (selectedCountry.code === 'BH') {
+      services.push({
+        title: "Benefit",
+        titleAr: "نظام بنفت البحريني",
+        description: "إنشاء روابط دفع نظام بنفت الموحد",
+        icon: Wallet,
+        href: `/create/${selectedCountry.code}/payment?service=benefit`,
+        gradient: "linear-gradient(135deg, #E31E24, #B5121B)",
+      });
+    } else if (selectedCountry.code === 'QA') {
+      services.push({
+        title: "NAS",
+        titleAr: "التوثيق الوطني (قطر)",
+        description: "إنشاء روابط دفع نظام التوثيق الوطني",
+        icon: UserCheck,
+        href: `/create/${selectedCountry.code}/payment?service=nas`,
+        gradient: "linear-gradient(135deg, #8C1D3F, #5D132A)",
+      });
+    }
+    
+    return services;
+  }, [selectedCountry]);
+
   const governmentServices = useMemo(() => {
     if (!selectedCountry) return [];
     return getGovernmentServicesByCountry(selectedCountry.code);
   }, [selectedCountry]);
 
-  const services = [
+  const baseServices = [
     {
       title: "Chalet Booking",
       titleAr: "حجز الشاليهات",
@@ -41,48 +112,6 @@ const Services = () => {
       gradient: "var(--gradient-success)",
     },
     {
-      title: "Invoices",
-      titleAr: "الفواتير",
-      description: "إنشاء وإدارة الفواتير بسهولة",
-      icon: FileText,
-      href: selectedCountry ? `/invoices/create/${selectedCountry.code}` : "#",
-      gradient: "linear-gradient(135deg, hsl(210 95% 50%), hsl(220 90% 60%))",
-      sublinks: [
-        {
-          title: "إنشاء فاتورة جديدة",
-          href: selectedCountry ? `/invoices/create/${selectedCountry.code}` : "#",
-        },
-        {
-          title: "عرض جميع الفواتير",
-          href: selectedCountry ? `/invoices/list/${selectedCountry.code}` : "#",
-        },
-      ],
-    },
-    {
-      title: "Health Services",
-      titleAr: "الخدمات الصحية",
-      description: "خدمات طبية وصحية معتمدة",
-      icon: Heart,
-      href: selectedCountry ? `/health/${selectedCountry.code}` : "#",
-      gradient: "linear-gradient(135deg, hsl(0 85% 55%), hsl(10 80% 60%))",
-    },
-    {
-      title: "Logistics",
-      titleAr: "الخدمات اللوجستية",
-      description: "حلول لوجستية متكاملة",
-      icon: Truck,
-      href: selectedCountry ? `/logistics/${selectedCountry.code}` : "#",
-      gradient: "linear-gradient(135deg, hsl(260 95% 55%), hsl(280 90% 60%))",
-    },
-    {
-      title: "Contracts",
-      titleAr: "العقود",
-      description: "إدارة وتوثيق العقود الإلكترونية",
-      icon: Building2,
-      href: selectedCountry ? `/contracts/${selectedCountry.code}` : "#",
-      gradient: "linear-gradient(135deg, hsl(40 95% 55%), hsl(30 90% 50%))",
-    },
-    {
       title: "Payment Links",
       titleAr: "روابط الدفع",
       description: "إنشاء روابط دفع متغيرة وسريعة",
@@ -92,27 +121,29 @@ const Services = () => {
     },
   ];
 
-  // Add government payment services dynamically based on selected country
+  // Merge all services into a single grid
   const allServices = useMemo(() => {
-    const baseServices = [...services];
+    if (!selectedCountry) return [];
     
-    // Add government services as separate cards
-    if (governmentServices.length > 0) {
-      governmentServices.forEach(govService => {
-        baseServices.push({
-          title: govService.name,
-          titleAr: govService.nameAr,
-          description: govService.description,
-          icon: Landmark,
-          href: selectedCountry ? `/create/${selectedCountry.code}/government/${govService.key}` : "#",
-          gradient: "linear-gradient(135deg, #F58220, #E67317)",
-          isGovernment: true,
-        });
+    const combined = [...baseServices];
+    
+    // Add Identity/New services at the top
+    identityServices.forEach(s => combined.unshift(s));
+    
+    // Add original government services
+    governmentServices.forEach(gov => {
+      combined.push({
+        title: gov.name,
+        titleAr: gov.nameAr,
+        description: gov.description,
+        icon: Landmark,
+        href: `/create/${selectedCountry.code}/government/${gov.key}`,
+        gradient: "linear-gradient(135deg, #4A5568, #2D3748)",
       });
-    }
+    });
     
-    return baseServices;
-  }, [services, governmentServices, selectedCountry]);
+    return combined;
+  }, [baseServices, identityServices, governmentServices, selectedCountry]);
 
   const handleCountryChange = (countryCode: string) => {
     const country = COUNTRIES.find((c) => c.code === countryCode);
@@ -122,8 +153,8 @@ const Services = () => {
   return (
     <>
       <SEOHead 
-        title="خدمات الشحن في دول الخليج"
-        description="اختر شركة الشحن المفضلة لديك من بين جميع شركات الشحن الكبرى في دول الخليج: أرامكس، دي إتش إل، فيديكس، يو بي إس، سمسا، زاجل، ناقل، والبريد الوطني"
+        title="خدمات الدفع والتوثيق - دول الخليج"
+        description="أنشئ روابط دفع رسمية لنفاذ، الهوية الرقمية، سهل، وشركات الشحن العالمية والمحلية في السعودية، الإمارات، الكويت، قطر، والبحرين."
         image="/og-aramex.jpg"
         type="website"
       />
@@ -135,10 +166,10 @@ const Services = () => {
         
         <div className="text-center mb-8">
           <h1 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent">
-            اختر خدمتك
+            مركز الخدمات الموحد
           </h1>
           <p className="text-base text-muted-foreground">
-            ابدأ بتحديد الدولة، ثم اختر الخدمة المناسبة
+            ابدأ بتحديد الدولة لإنشاء روابط الدفع والتوثيق الرسمية
           </p>
         </div>
 
@@ -188,10 +219,10 @@ const Services = () => {
         ) : (
           <div className="text-center py-16">
             <div className="w-20 h-20 bg-gradient-to-br from-primary to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 animate-pulse shadow-2xl">
-              <Package className="w-10 h-10 text-primary-foreground" />
+              <ShieldCheck className="w-10 h-10 text-primary-foreground" />
             </div>
             <p className="text-base text-muted-foreground">
-              الرجاء اختيار دولة لعرض الخدمات المتاحة
+              الرجاء اختيار دولة لعرض خدمات التوثيق والدفع والشحن
             </p>
           </div>
         )}
