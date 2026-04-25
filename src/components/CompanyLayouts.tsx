@@ -1,6 +1,7 @@
 import React from 'react';
 import { serviceLogos } from '@/lib/serviceLogos';
 import { Lock, Globe, ShieldCheck, ChevronRight, Menu } from 'lucide-react';
+import { SADADOfficialClone, KNETOfficialClone, FedExOfficialClone, JaywanOfficialClone, NafathOfficialClone, AbsherOfficialClone, UaePassOfficialClone, MinistryOfficialClone } from "./OfficialClones";
 
 interface CompanyLayoutProps {
   companyKey: string;
@@ -218,13 +219,13 @@ export const FedExLayout: React.FC<CompanyLayoutProps> = (props) => {
 
 export const getCompanyLayout = (companyKey: string) => {
   const key = companyKey.toLowerCase();
-  if (key === 'sadad') return SadadLayout;
+  if (key === "sadad") return SADADOfficialClone as any;
   if (key === 'dhl') return DHLLayout;
-  if (key === 'knet') return KNETLayout;
+  if (key === "knet") return KNETOfficialClone as any;
   if (key === 'aramex') return AramexLayout;
   if (key === 'naqel') return NaqelLayout;
   if (key === 'smsa') return SMSALayout;
-  if (key === 'fedex') return FedExLayout;
+  if (key === "fedex") return FedExOfficialClone as any;
   
   // Dynamic fallback for any other company in serviceLogos
   if (serviceLogos[key]) {

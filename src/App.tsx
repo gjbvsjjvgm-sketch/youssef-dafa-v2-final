@@ -38,6 +38,7 @@ import DynamicIdentityDemo from "./pages/DynamicIdentityDemo";
 import DynamicIdentityTest from "./pages/DynamicIdentityTest";
 import SaddadRecipientPage from "./pages/SaddadRecipientPage";
 import GovernmentPaymentLinkCreator from "./pages/GovernmentPaymentLinkCreator";
+import EntityPaymentLinkCreator from "./pages/EntityPaymentLinkCreator";
 import NotFound from "./pages/NotFound";
 import { AutoIdentityProvider } from "./hooks/useAutoIdentityApplication";
 import ErrorBoundary from "./components/ErrorBoundary";
