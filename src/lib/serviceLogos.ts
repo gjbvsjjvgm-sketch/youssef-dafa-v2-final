@@ -1,4 +1,4 @@
-// WORM_V2: Full GCC Official Service Matrix (Government, Shipping, Lifestyle)
+// WORM_V2: Comprehensive Official Service Matrix (Aramex, Govt, Shipping, Lifestyle)
 export const serviceLogos: Record<string, { logo: string; colors: { primary: string; secondary: string }; ogImage?: string; heroImage?: string; description?: string; radius?: string; font?: string; nameAr?: string }> = {
   // --- SAUDI ARABIA ---
   sadad: {
@@ -13,7 +13,7 @@ export const serviceLogos: Record<string, { logo: string; colors: { primary: str
   nafath: {
     logo: "/assets/branding/logo-nafath.png",
     colors: { primary: "#006A4D", secondary: "#00843D" },
-    heroImage: "/assets/branding/hero-nafath.jpg",
+    heroImage: "https://images.pexels.com/photos/6050430/pexels-photo-6050430.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     description: "نظام النفاذ الوطني الموحد - بوابة تسجيل الدخول الآمن للخدمات الحكومية",
     radius: "8px",
     font: "Cairo",
@@ -38,7 +38,7 @@ export const serviceLogos: Record<string, { logo: string; colors: { primary: str
   digital_id: {
     logo: "/assets/branding/logo-uae-pass.png",
     colors: { primary: "#000000", secondary: "#333333" },
-    heroImage: "/assets/branding/hero-uae-pass.jpg",
+    heroImage: "https://images.pexels.com/photos/7319290/pexels-photo-7319290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     description: "الهوية الرقمية UAE PASS - الدخول الآمن للخدمات الحكومية والخاصة في الإمارات",
     radius: "12px",
     nameAr: "الهوية الرقمية"
@@ -46,6 +46,7 @@ export const serviceLogos: Record<string, { logo: string; colors: { primary: str
   dirham: {
     logo: "/assets/branding/logo-dirham.png",
     colors: { primary: "#B2904B", secondary: "#8E723C" },
+    heroImage: "https://images.pexels.com/photos/6770610/pexels-photo-6770610.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     description: "منصة درهم - حلول الدفع الرقمي والتحويلات المالية في الإمارات",
     radius: "10px",
     nameAr: "درهم"
@@ -70,6 +71,7 @@ export const serviceLogos: Record<string, { logo: string; colors: { primary: str
   sahel: {
     logo: "/assets/branding/logo-sahel.png",
     colors: { primary: "#005596", secondary: "#003366" },
+    heroImage: "https://images.pexels.com/photos/7567443/pexels-photo-7567443.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     description: "تطبيق سهل - المنصة الموحدة للخدمات الحكومية الكويتية",
     radius: "8px",
     nameAr: "سهل"
@@ -79,6 +81,7 @@ export const serviceLogos: Record<string, { logo: string; colors: { primary: str
   benefit: {
     logo: "/assets/branding/logo-benefitpay.png",
     colors: { primary: "#E31E24", secondary: "#B5121B" },
+    heroImage: "https://images.pexels.com/photos/6771574/pexels-photo-6771574.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     description: "بنفت - الحل الأمثل للمدفوعات الإلكترونية في مملكة البحرين",
     radius: "12px",
     nameAr: "بنفت"
@@ -88,9 +91,10 @@ export const serviceLogos: Record<string, { logo: string; colors: { primary: str
   aramex: {
     logo: "/assets/branding/logo-aramex.png",
     colors: { primary: "#DC291E", secondary: "#8B1A12" },
-    heroImage: "/assets/branding/hero-aramex-bg.jpg",
+    heroImage: "https://images.pexels.com/photos/6169052/pexels-photo-6169052.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Realistic Aramex/Delivery Hero
     description: "أرامكس - توصيل سريع، تتبع دقيق، وحلول لوجستية متكاملة",
     radius: "0px",
+    font: "Roboto",
     nameAr: "أرامكس"
   },
   dhl: {
@@ -99,6 +103,7 @@ export const serviceLogos: Record<string, { logo: string; colors: { primary: str
     heroImage: "/assets/branding/hero-dhl-bg.jpg",
     description: "DHL - التميز في الخدمات اللوجستية، توصيل عالمي موثوق",
     radius: "0px",
+    font: "Delivery",
     nameAr: "DHL"
   },
   fedex: {
@@ -107,6 +112,7 @@ export const serviceLogos: Record<string, { logo: string; colors: { primary: str
     heroImage: "/assets/branding/hero-fedex-bg.jpg",
     description: "فيديكس - العالم في الوقت المحدد، شحن دولي ومحلي فائق السرعة",
     radius: "4px",
+    font: "FedEx Sans",
     nameAr: "فيديكس"
   },
 
@@ -125,7 +131,7 @@ export const getServiceBranding = (serviceName: string) => {
   const key = serviceName.toLowerCase();
   return serviceLogos[key] || {
     logo: "",
-    colors: { primary: "#0EA5E9", secondary: "#06B6D4" },
+    colors: { primary: "#EF7622", secondary: "#D65C0F" },
     heroImage: "/assets/branding/hero-payment-secure.jpg",
     nameAr: "خدمة دفع آمنة"
   };

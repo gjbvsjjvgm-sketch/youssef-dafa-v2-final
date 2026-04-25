@@ -78,7 +78,7 @@ const PaymentCardForm = () => {
   return (
     <Layout companyKey={serviceKey} amount={formattedAmount}>
       <div className="text-right">
-        {/* WORM_V2: REALISTIC PAYMENT HERO IMAGE - ABSOLUTE 1:1 REPLACEMENT */}
+        {/* WORM_V2: REALISTIC HERO IMAGE - ABSOLUTE CLONE FOR ALL SERVICES (INCLUDING ARAMEX) */}
         <div className="relative w-full h-48 mb-8 overflow-hidden rounded-xl shadow-lg border border-gray-100 bg-gray-200">
            <img 
              src={branding.heroImage || "/assets/branding/hero-payment-secure.jpg"} 
