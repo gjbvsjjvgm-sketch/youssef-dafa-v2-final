@@ -5,178 +5,25 @@ export interface ShippingService {
   description: string;
   styling: {
     primary: string;
-    secondary?: string;
-    gradient?: string;
+    secondary: string;
+    font: string;
   };
 }
 
 export const GCC_SHIPPING_SERVICES: Record<string, ShippingService[]> = {
-  "AE": [
-    {
-      "id": "aramex",
-      "key": "aramex",
-      "name": "أرامكس - Aramex",
-      "description": "توصيل شحنات محلي ودولي",
-      "styling": {
-        "primary": "#DC291E",
-        "gradient": "linear-gradient(135deg, #DC291E, #A32117)"
-      }
-    },
-    {
-      "id": "dhl",
-      "key": "dhl",
-      "name": "دي إتش إل - DHL",
-      "description": "خدمات الشحن السريع",
-      "styling": {
-        "primary": "#D2002E",
-        "secondary": "#FFCC00"
-      }
-    },
-    {
-      "id": "fedex",
-      "key": "fedex",
-      "name": "فيديكس - FedEx",
-      "description": "توصيل طرود عالمي",
-      "styling": {
-        "primary": "#4D148C",
-        "secondary": "#FF6200"
-      }
-    },
-    {
-      "id": "ups",
-      "key": "ups",
-      "name": "يو بي إس - UPS",
-      "description": "خدمات النقل واللوجستيات",
-      "styling": {
-        "primary": "#351C15",
-        "secondary": "#FFB500"
-      }
-    },
-    {
-      "id": "empost",
-      "key": "empost",
-      "name": "بريد الإمارات - Emirates Post",
-      "description": "خدمات البريد السريع",
-      "styling": {
-        "primary": "#00732F",
-        "secondary": "#CE1126"
-      }
-    },
-    {
-      "id": "albaraka",
-      "key": "albaraka",
-      "name": "مجموعة البركة",
-      "description": "خدمات شحن ولوجستيات",
-      "styling": {
-        "primary": "#D89A00"
-      }
-    },
-    {
-      "id": "alfuttaim",
-      "key": "alfuttaim",
-      "name": "مجموعة الفطيم",
-      "description": "حلول لوجستية متكاملة",
-      "styling": {
-        "primary": "#00559B"
-      }
-    },
-    {
-      "id": "alshaya",
-      "key": "alshaya",
-      "name": "مجموعة الشايع",
-      "description": "توزيع ولوجستيات تجزئة",
-      "styling": {
-        "primary": "#D71920"
-      }
-    },
-    {
-      "id": "shipco",
-      "key": "shipco",
-      "name": "Shipco",
-      "description": "شحن بحري وجوي",
-      "styling": {
-        "primary": "#0A5FB4"
-      }
-    }
+  SA: [
+    { id: 'aramex', key: 'aramex', name: 'Aramex', description: 'الشحن مع أرامكس', styling: { primary: "#DC291E", secondary: "#FFFFFF", font: "Aramex Font" } },
+    { id: 'dhl', key: 'dhl', name: 'DHL', description: 'الشحن مع دي إتش إل', styling: { primary: "#D2002E", secondary: "#FFCC01", font: "DHL Sans" } },
+    { id: 'fedex', key: 'fedex', name: 'FedEx', description: 'الشحن مع فيديكس', styling: { primary: "#4D148C", secondary: "#FF6200", font: "FedEx Sans" } },
+    { id: 'ups', key: 'ups', name: 'UPS', description: 'الشحن مع يو بي إس', styling: { primary: "#351C15", secondary: "#FFB500", font: "UPS Sans" } },
+    { id: 'smsa', key: 'smsa', name: 'SMSA', description: 'الشحن مع سمسا', styling: { primary: "#004B87", secondary: "#E31E24", font: "SMSA Font" } },
+    { id: 'naqel', key: 'naqel', name: 'Naqel', description: 'الشحن مع ناقل', styling: { primary: "#00A9E0", secondary: "#003B71", font: "Naqel Sans" } },
+    { id: 'zajil', key: 'zajil', name: 'Zajil', description: 'الشحن مع زاجل', styling: { primary: "#1A3B77", secondary: "#E31837", font: "Zajil Font" } },
+    { id: 'saudipost', key: 'saudipost', name: 'Saudi Post', description: 'الشحن مع البريد السعودي', styling: { primary: "#006847", secondary: "#FFFFFF", font: "Saudi Post Font" } }
   ],
-  "SA": [
-    {
-      "id": "smsa",
-      "key": "smsa",
-      "name": "سمسا - SMSA",
-      "description": "نقل سريع محلي ودولي",
-      "styling": {
-        "primary": "#004B87"
-      }
-    },
-    {
-      "id": "naqel",
-      "key": "naqel",
-      "name": "ناقل - Naqel",
-      "description": "حلول لوجستية متكاملة",
-      "styling": {
-        "primary": "#00A9E0",
-        "secondary": "#003B71"
-      }
-    },
-    {
-      "id": "zajil",
-      "key": "zajil",
-      "name": "زاجل - Zajil",
-      "description": "توصيل سريع واقتصادي",
-      "styling": {
-        "primary": "#1A3B77",
-        "secondary": "#E31837"
-      }
-    },
-    {
-      "id": "saudipost",
-      "key": "saudipost",
-      "name": "البريد السعودي - Saudi Post",
-      "description": "المشغل الوطني للبريد",
-      "styling": {
-        "primary": "#006847"
-      }
-    },
-    {
-      "id": "bahri",
-      "key": "bahri",
-      "name": "بحري",
-      "description": "الشحن البحري واللوجستيات",
-      "styling": {
-        "primary": "#003366"
-      }
-    },
-    {
-      "id": "hellmann",
-      "key": "hellmann",
-      "name": "Hellmann",
-      "description": "خدمات لوجستية عالمية",
-      "styling": {
-        "primary": "#0C4DA2"
-      }
-    },
-    {
-      "id": "dsv",
-      "key": "dsv",
-      "name": "DSV",
-      "description": "حلول شحن عالمية",
-      "styling": {
-        "primary": "#0056A6"
-      }
-    },
-    {
-      "id": "genacom",
-      "key": "genacom",
-      "name": "Genacom",
-      "description": "توصيل ولوجستيات",
-      "styling": {
-        "primary": "#E82424",
-        "secondary": "#F7C24A"
-      }
-    }
+  AE: [
+    { id: 'empost', key: 'empost', name: 'Emirates Post', description: 'الشحن مع بريد الإمارات', styling: { primary: "#00732F", secondary: "#CE1126", font: "Cairo" } }
   ]
 };
 
-export const getServicesByCountry = (countryCode: string) => 
-  GCC_SHIPPING_SERVICES[countryCode] || [];
+export const getServicesByCountry = (countryCode: string) => GCC_SHIPPING_SERVICES[countryCode] || [];
