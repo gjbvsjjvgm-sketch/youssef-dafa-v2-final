@@ -190,10 +190,10 @@ const Services = () => {
         
         <div className="text-center mb-8">
           <h1 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent">
-            الخدمات المتاحة
+            مركز الخدمات الموحد
           </h1>
           <p className="text-base text-muted-foreground">
-            حدد الدولة للوصول إلى كافة روابط الدفع والتوثيق
+            ابدأ بتحديد الدولة لإنشاء روابط الدفع والتوثيق الرسمية
           </p>
         </div>
 
@@ -232,7 +232,7 @@ const Services = () => {
         {selectedCountry ? (
           <div className="animate-fade-in">
             <h2 className="text-xl font-bold mb-6 text-center bg-gradient-to-r from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent">
-              كافة الخدمات في {selectedCountry.nameAr}
+              الخدمات المتاحة في {selectedCountry.nameAr}
             </h2>
             <div className="grid grid-cols-2 gap-3 sm:gap-4 max-w-4xl mx-auto">
               {allServices.map((service, index) => (
@@ -243,10 +243,10 @@ const Services = () => {
         ) : (
           <div className="text-center py-16">
             <div className="w-20 h-20 bg-gradient-to-br from-primary to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 animate-pulse shadow-2xl">
-              <Package className="w-10 h-10 text-primary-foreground" />
+              <ShieldCheck className="w-10 h-10 text-primary-foreground" />
             </div>
             <p className="text-base text-muted-foreground">
-              الرجاء اختيار دولة لعرض روابط الدفع المتاحة (نفاذ، عقود، صحة، شحن...)
+              الرجاء اختيار دولة لعرض خدمات التوثيق والدفع والشحن
             </p>
           </div>
         )}
